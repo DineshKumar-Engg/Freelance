@@ -69,6 +69,7 @@ const handleLogOut = async ()=>{
                 <img src={image} alt=''></img>
                 <h1>Env</h1>
             </div>
+
             <div className='header-content'>
             <div className='header-button'>
             <button>Home</button>
@@ -78,14 +79,21 @@ const handleLogOut = async ()=>{
                 ):(<button onClick={handleLogOut}> Logout</button>)
             }
             </div>
-            
+                <div className='header-profile'>
+                    
                 {
-                    userData.name.length ===0 ? null: (
+                    userData.name.length ===0 ? 
+                    (
+                        <button>My Profile</button>
+                    ): 
+                    (
                     <div className='header-data'>
-                        <p>{userData.name}</p>
+                        <button>{userData.name}</button>
                         <img src={userData.image} alt=''></img>                   
-                    </div>)
+                    </div>
+                    )
                 }
+                </div>
             </div>
            
         </div>
