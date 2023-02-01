@@ -5,6 +5,12 @@ const initialState={
         name:'',
         email:'',
         image:'',
+    },
+    product:{
+        list:''
+    },
+    cost:{
+        total:''
     }
 }
 
@@ -14,17 +20,25 @@ export const UserReduxSlice = createSlice({
     initialState:initialState,
     reducers:{
         login:(state,action)=>{
-            state.value.name = action.payload.name
-            state.value.email=action.payload.email
-            state.value.image=action.payload.image
+            state.value = action.payload
+            // state.value.email=action.payload.email
+            // state.value.image=action.payload.image
         },
         logout:(state,action)=>{
-            state.value.name = action.payload.name
-            state.value.email=action.payload.email
-            state.value.image=action.payload.image
+            state.value= action.payload
+            // state.value.email=action.payload.email
+            // state.value.image=action.payload.image
+        },
+        dress:(state,action)=>{
+            state.product.list = action.payload
+        },
+        price:(state,action)=>{
+            state.cost.total=action.payload
         }
+           
+        
     }
 })
 
-export const {login,logout} = UserReduxSlice.actions
+export const {login,logout,dress,price} = UserReduxSlice.actions
 export default UserReduxSlice.reducer

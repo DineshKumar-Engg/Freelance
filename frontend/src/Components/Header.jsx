@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux'
 import { login, logout } from '../Redux/Slice'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
+import Home from './Home'
 
 const Header = () => {
 
@@ -41,8 +42,6 @@ const Header = () => {
                     email:res.user.email,
                     image:res.user.photoURL
                 }))
-                
-                // console.log(res);
             })
             .catch((err)=>{
                 console.log(err);
