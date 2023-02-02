@@ -4,5 +4,15 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "nodemailer": "^6.9.1"
-  }
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Freelance",
+  "main": "Server.js",
+  "devDependencies": {},
+  "author": "dinesh",
+  "license": "ISC"
 }

@@ -42,11 +42,12 @@ const Header = () => {
                     email:res.user.email,
                     image:res.user.photoURL
                 }))
+                console.log(res);
             })
             .catch((err)=>{
                 console.log(err);
             })
-        
+                
     }
 
 const handleLogOut = async ()=>{

@@ -9,7 +9,7 @@ import { ProductData } from '../Data'
 import '../Styles/Home.css'
 import {useDispatch, useSelector} from 'react-redux'
 import {dress} from '../Redux/Slice'
-
+import { OrderCount } from '../Redux/Slice'
 
 
 const Home = () => {
@@ -41,12 +41,12 @@ const handleChange=(e)=>{
 
 } 
 
-const [count,SetCount]=useState([{
+const [count,SetCount]=useState({
   shirt:'',
   pant:'',
   saree:'',
   others:''
-}])
+})
 
 const handleSelect=(e)=>{
  SetCount({...count,[e.target.name]:e.target.value})
@@ -57,12 +57,11 @@ const handleSubmit=(e)=>{
   e.preventDefault();
   dispatch(dress({
     dress:input.select,
-    num:count
  }))
+ dispatch(OrderCount(count))
 
 }
 
-const userProduct = useSelector((state)=>state.user.product)
 
 
 

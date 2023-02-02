@@ -8,15 +8,16 @@ import { price } from '../Redux/Slice'
 const Order = () => {
 
     const order = useSelector((state)=>state.user.product)
+    const count =useSelector((state)=>state.user.count)
     const dispatch =useDispatch()
 
-        const data = order?.list?.num?.shirt*10 + 
-                     order?.list?.num?.pant*10 +
-                    order?.list?.num?.saree*10 + 
-                    order?.list?.num?.others*10
+        const data = count?.shirt*10 + 
+                    count?.pant*10 +
+                    count?.saree*10 + 
+                    count?.others*10
       
     const handlePrice=()=>{
-        dispatch(price(data))
+        dispatch(price({total:data}))
     }
 
   return (
@@ -35,19 +36,19 @@ const Order = () => {
                         <tr>
                             <th>Products</th>
                             {
-                                order?.list?.dress?.map((item,index)=>(
+                                order.list ? (order?.list?.map((item,index)=>(
                                     <th key={index}>{item}</th>
-                                ))
+                                ))):null
                             }
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Quantity</td>
-                            <td>{order?.list?.num?.shirt || ''}</td>
-                            <td>{order?.list?.num?.pant || ''}</td>
-                            <td>{order?.list?.num?.saree || ''}</td>
-                            <td>{order?.list?.num?.others || ''}</td>
+                            <td>{count?.shirt || ''}</td>
+                            <td>{count?.pant || ''}</td>
+                            <td>{count?.saree || ''}</td>
+                            <td>{count?.others || ''}</td>
                         </tr>
                         <tr>
                             <td>Total Price</td>

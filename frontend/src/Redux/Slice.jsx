@@ -7,8 +7,9 @@ const initialState={
         image:'',
     },
     product:{
-        list:''
+        list:'',
     },
+    count:[],
     cost:{
         total:''
     }
@@ -30,7 +31,11 @@ export const UserReduxSlice = createSlice({
             // state.value.image=action.payload.image
         },
         dress:(state,action)=>{
-            state.product.list = action.payload
+            state.product.list = action.payload.dress
+            // state.product.num=action.payload.num
+        },
+        OrderCount:(state,action)=>{
+            state.count=action.payload
         },
         price:(state,action)=>{
             state.cost.total=action.payload
@@ -40,5 +45,5 @@ export const UserReduxSlice = createSlice({
     }
 })
 
-export const {login,logout,dress,price} = UserReduxSlice.actions
+export const {login,logout,dress,OrderCount,price} = UserReduxSlice.actions
 export default UserReduxSlice.reducer
